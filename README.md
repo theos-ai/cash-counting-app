@@ -2,11 +2,10 @@
 
 ![Cash Counting App Made by Theos AI](assets/cover.jpg)
 
-<br></br>
 This is a Cash Counting App using React Native and Computer Vision, made with ❤️ by [Theos AI](https://theos.ai).
 <br></br>
 Don't forget to read the [Blog Post](https://blog.theos.ai/articles/cash-counting-app-react-native-and-computer-vision)!
-<br></br>
+
 
 ### Install the Expo CLI
 
