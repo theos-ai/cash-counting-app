@@ -1,6 +1,6 @@
 # Cash Counting App
 
-<img src="assets/cash-app.png" height="500px">
+![Cash Counting App Made by Theos AI](assets/cover.jpg)
 
 <br></br>
 This is a Cash Counting App using React Native and Computer Vision, made with ❤️ by [Theos AI](https://theos.ai).
