@@ -45,7 +45,7 @@ function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
-async function detect(imageFile, url = URL, confThres = 0.25, iouThres = 0.45, retries = 10, delay = 0) {
+async function detect(imageFile, url=URL, confThres=0.25, iouThres=0.45, retries=10, delay=0) {
   const data = new FormData();
   data.append('image', imageFile);
   data.append('conf_thres', confThres);
@@ -60,7 +60,7 @@ async function detect(imageFile, url = URL, confThres = 0.25, iouThres = 0.45, r
       else if (error.response.data) throw new Error(error.response.data.message);
     } else if (retries > 0) {
       if (delay > 0) await sleep(delay);
-      return await detect(imageFile, url = FALLBACK_URL ? FALLBACK_URL : URL, confThres = 0.25, iouThres = 0.45, retries = retries - 1, delay = 2);
+      return await detect(imageFile, FALLBACK_URL? FALLBACK_URL:URL, confThres, iouThres, retries - 1, delay = 2);
     } else {
       return [];
     }
