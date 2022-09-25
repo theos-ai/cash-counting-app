@@ -9,19 +9,19 @@ Don't forget to read the [Blog Post](https://blog.theos.ai/articles/cash-countin
 
 ### Install the Expo CLI
 
-```bash
+```
 npm i expo-cli
 ```
 
 ### Install all the dependencies
 
-```bash
+```
 npm install
 ```
 
 ### Start the Expo server
 
-```bash
+```
 expo start
 ```
 
