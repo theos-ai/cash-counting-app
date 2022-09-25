@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cash-detector",
-    "slug": "cash-detector",
+    "name": "cash-counting-app",
+    "slug": "cash-counting-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -1,5 +1,5 @@
 {
-  "name": "cash-detector",
+  "name": "cash-counting-app",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start --dev-client",

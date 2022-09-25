@@ -75,6 +75,7 @@ export default function App() {
   const [originalImageWidth, setOriginalImageWidth] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [detecting, setDetecting] = useState(false);
+  const [detected, setDetected] = useState(false);
   const [detections, setDetections] = useState([]);
   const [amount, setAmount] = useState(0);
   const cameraRef = useRef(null);
@@ -87,12 +88,19 @@ export default function App() {
     })();
   }, []);
 
+  useEffect(() => {
+    if (image) {
+      detectPicture();
+    }
+  }, [image])
+
   const takePicture = async () => {
     if (cameraRef) {
       try {
-        const data = await cameraRef.current.takePictureAsync({ quality: 0.25, scale: 0.1 });
+        const data = await cameraRef.current.takePictureAsync();
         setOriginalImageWidth(data.width);
         setImage(data.uri);
+        await detectPicture();
       } catch (error) {
         console.log(error);
       }
@@ -110,8 +118,10 @@ export default function App() {
         setDetections([]);
         setAmount(0);
         setDetecting(true);
+        setDetected(false);
         const detectedCash = await detect(imageFile);
         setDetecting(false);
+        setDetected(true);
         setDetections(detectedCash);
         let detectedAmout = 0;
         detectedCash.forEach((detection) => {
@@ -127,6 +137,8 @@ export default function App() {
   function retake() {
     setImage(null);
     setDetections([]);
+    setDetecting(false);
+    setDetected(false);
     setAmount(0);
     FileSystem.deleteAsync(image);
   }
@@ -228,29 +240,19 @@ export default function App() {
         </View>
       )}
       <View style={styles.controls}>
-        {image ? (
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingHorizontal: 50
-            }}
-          >
-            <Button
-              title='Retake'
-              onPress={retake}
-              icon='ios-reload'
-            />
-            <Button title='Detect' onPress={detectPicture} icon='color-wand' />
-          </View>
-        ) : (
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingHorizontal: 50
-            }}
-          >
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: 50
+          }}
+        >
+          {image ? <Button
+            title='Retake'
+            onPress={retake}
+            icon='ios-reload'
+          />
+            :
             <Button
               title=''
               icon='camera-reverse'
@@ -260,9 +262,9 @@ export default function App() {
                 );
               }}
             />
-            <Button title='Capture cash' onPress={takePicture} icon='camera' />
-          </View>
-        )}
+          }
+          <Button disabled={detected} title='Count' onPress={takePicture} icon='color-wand' />
+        </View>
         <Text style={styles.predictionText}>${amount}</Text>
       </View>
     </View>
