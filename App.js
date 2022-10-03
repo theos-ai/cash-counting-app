@@ -38,8 +38,8 @@ const CLASS_COLORS = {
   }
 }
 
-const URL = 'https://inference.theos.ai/ba962f45-9d7c-455a-8835-16e30b1d2af1/detect';
-const FALLBACK_URL = 'https://inf-ba962f45-9d7c-455a-8835-16e30b1d2af1-no4xvrhsfq-uc.a.run.app/detect';
+const URL = '';
+const FALLBACK_URL = '';
 
 function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
