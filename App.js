@@ -38,7 +38,7 @@ const CLASS_COLORS = {
   }
 }
 
-const URL = '';
+const URL = 'https://inf-8797d3e8-dd38-40e8-9951-8d43ba1d6493-no4xvrhsfq-uc.a.run.app/detect';
 const FALLBACK_URL = '';
 
 function sleep(seconds) {
@@ -177,7 +177,6 @@ export default function App() {
       box.height * scale
     );
     ctx.lineWidth = 1.5;
-    console.log(CLASS_COLORS[box.class], box.class)
     ctx.fillStyle = CLASS_COLORS[box.class].fill;
     ctx.strokeStyle = CLASS_COLORS[box.class].border;
     ctx.fill();
