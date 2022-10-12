@@ -38,7 +38,7 @@ const CLASS_COLORS = {
   }
 }
 
-const URL = 'https://inf-8797d3e8-dd38-40e8-9951-8d43ba1d6493-no4xvrhsfq-uc.a.run.app/detect';
+const URL = 'https://inf-fabe1f45-71ce-45cc-9282-edd7cd616617-no4xvrhsfq-uc.a.run.app/detect';
 const FALLBACK_URL = '';
 
 function sleep(seconds) {
