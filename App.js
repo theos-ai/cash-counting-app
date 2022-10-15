@@ -38,7 +38,7 @@ const CLASS_COLORS = {
   }
 }
 
-const URL = 'https://inf-fabe1f45-71ce-45cc-9282-edd7cd616617-no4xvrhsfq-uc.a.run.app/detect';
+const URL = ''; // copy and paste your Theos deployment URL here
 const FALLBACK_URL = '';
 
 function sleep(seconds) {

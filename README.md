@@ -19,6 +19,12 @@ npm i expo-cli
 npm install
 ```
 
+### Copy and paste your Theos deployment URL inside App.js
+
+``` javascript
+const URL = '<your-deployment-url>';
+```
+
 ### Start the Expo server
 
 ```
